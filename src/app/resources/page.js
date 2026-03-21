@@ -19,7 +19,7 @@ export default function ResourcesPage() {
 
           <div className="page-banner__media">
             <Image
-              src="/images/pic6.jpg"
+              src="/images/a.jpg"
               alt="Church resources banner"
               fill
               sizes="(max-width: 900px) 100vw, 40vw"
