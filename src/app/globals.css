@@ -684,7 +684,9 @@ button:disabled {
 
 .footer__title {
   margin: 0;
-  font-weight: 700;
+  font-weight: 900;
+  color: chartreuse;
+  font-style: italic;
 }
 
 .footer__text {
