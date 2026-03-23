@@ -45,7 +45,7 @@ export default function AboutPage() {
         <div className="shell two-column-copy">
           <SectionIntro
             eyebrow="Ministry focus"
-            title="Core commitments carried forward from the original site"
+            title="Core commitments"
           />
 
           <div className="principles-list">
