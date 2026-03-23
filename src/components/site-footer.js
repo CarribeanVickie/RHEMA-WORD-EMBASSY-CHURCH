@@ -14,6 +14,7 @@ export function SiteFooter() {
           <div className="footer__meta">
             <a href={`mailto:${contactDetails.email}`}>{contactDetails.email}</a>
             <p>{contactDetails.location}</p>
+            <p>{contactDetails.phone}</p>
           </div>
         </div>
 

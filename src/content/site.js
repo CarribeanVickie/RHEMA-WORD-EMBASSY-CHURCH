@@ -5,6 +5,7 @@ export const navigation = [
   { href: "/visit", label: "Visit" }
 ];
 
+
 export const announcement = {
   eyebrow: "This week",
   title: "Join us for worship, prayer, and Bible exposition in Roysambu.",
@@ -30,6 +31,16 @@ export const serviceTimes = [
     text: "A focused time of intercession and standing together in prayer."
   },
   {
+    title: "Tuesday Online Prayer Hour",
+    day: 2, // 0=Sunday, 1=Monday, 2=Tuesday...
+    start: "21:00",
+    end: "21:30",
+    bufferEnd: "22:00", // when "ENDED" stops showing
+    time: "Every Tuesday, 9:00 PM - 9:30 PM",
+    text: "A focused time of intercession and standing together in prayer.",
+    Link: "https://meet.google.com/ctu-ajks-msu"
+  },
+  {
     title: "Thursday Service",
     time: "Every Thursday, 5:30 PM - 7:00 PM",
     text: "Midweek teaching and encouragement rooted in the Word."
@@ -38,7 +49,17 @@ export const serviceTimes = [
     title: "Friday Deborah Service",
     time: "Every Friday, 4:00 PM - 5:30 PM",
     text: "A gathering centered on ministry, strengthening, and fellowship."
-  }
+  },
+  {
+    title: "Friday C.R.O.S.S Service",
+    day: 5,
+    start: "21:00",
+    end: "21:40",
+    bufferEnd: "22:00",
+    time: "Every Friday, 9:00 PM - 9:40 PM",
+    text: "A weekly online service focused on teaching.",
+    Link: "https://meet.google.com/zjz-bjpj-bjk"
+  },
 ];
 
 export const ministryHighlights = [
@@ -90,12 +111,13 @@ export const resourceSections = [
   {
     title: "Sunday Sermons / Services",
     eyebrow: "Sunday archive",
-    description: "Recent Sunday messages and service streams.",
+    description: "THEME: LAUNCHING INTO THE DEEP (L.I.T.D)",
+    description2: "Click the links below to watch or listen to past sermons and services.",
     items: [
-      { label: "Sunday Service 1", href: "https://youtube.com/live/GOBFjjoj5-I?feature=share" },
-      { label: "Sunday Service 2", href: "https://youtube.com/live/Ns4Tk0-yvbE?feature=share" },
-      { label: "Sunday Service 3", href: "https://youtube.com/live/2LCZ_c-cFng?feature=share" },
-      { label: "Sunday Service 4", href: "https://youtube.com/live/Wu9wVffpmJ8?feature=share" }
+      { label: "L.I.T.D PART 10 (2ND SESSION)", href: "https://youtube.com/live/GOBFjjoj5-I?feature=share" },
+      { label: "L.I.T.D PART 10 (1ST SESSION)", href: "https://youtube.com/live/Ns4Tk0-yvbE?feature=share" },
+      { label: "L.I.T.D PART 09 (2ND SESSION)", href: "https://youtube.com/live/2LCZ_c-cFng?feature=share" },
+      { label: "L.I.T.D PART 09 (1ST SESSION)", href: "https://youtube.com/live/Wu9wVffpmJ8?feature=share" }
     ]
   },
   {
@@ -103,10 +125,10 @@ export const resourceSections = [
     eyebrow: "Friday online service",
     description: "Every Friday from 9:00 PM to 9:40 PM.",
     items: [
-      { label: "C.R.O.S.S Service 1", href: "https://youtu.be/AyaQ2C-wFGU" },
-      { label: "C.R.O.S.S Service 2", href: "https://youtu.be/74G5WnoEf1o" },
-      { label: "C.R.O.S.S Service 3", href: "https://youtu.be/5ReQeO6yKX0" },
-      { label: "C.R.O.S.S Service 4", href: "https://youtu.be/KcoyfYxs6Mw" }
+      { label: "C.R.O.S.S Service VOL 065", href: "https://youtu.be/AyaQ2C-wFGU" },
+      { label: "C.R.O.S.S Service VOL 064", href: "https://youtu.be/74G5WnoEf1o" },
+      { label: "C.R.O.S.S Service VOL 063", href: "https://youtu.be/5ReQeO6yKX0" },
+      { label: "C.R.O.S.S Service VOL 062", href: "https://youtu.be/KcoyfYxs6Mw" }
     ]
   }
 ];
@@ -119,6 +141,7 @@ export const socialLinks = [
 ];
 
 export const contactDetails = {
+  phone: "+254 721720660",
   email: "therhemawordembassy@gmail.com",
   location: "Roysambu, Nairobi",
   mapEmbed:

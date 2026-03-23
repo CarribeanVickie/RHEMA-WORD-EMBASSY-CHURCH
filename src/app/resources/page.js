@@ -19,7 +19,7 @@ export default function ResourcesPage() {
 
           <div className="page-banner__media">
             <Image
-              src="/images/a.jpg"
+              src="/images/IMG_2261.jpg"
               alt="Church resources banner"
               fill
               sizes="(max-width: 900px) 100vw, 40vw"
@@ -71,7 +71,7 @@ export default function ResourcesPage() {
           <div className="media-card media-card--compact">
             <div className="media-card__image">
               <Image
-                src="/images/bible.jpg"
+                src="/images/CROSS_LOGO.jpg"
                 alt="Prayer and teaching"
                 fill
                 sizes="(max-width: 900px) 100vw, 45vw"

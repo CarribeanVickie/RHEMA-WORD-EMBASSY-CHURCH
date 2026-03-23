@@ -19,7 +19,7 @@ export default function AboutPage() {
 
           <div className="page-banner__media">
             <Image
-              src="/images/pic7.jpg"
+              src="/images/poster.jpg"
               alt="Rhema Word Embassy Church landscape view"
               fill
               sizes="(max-width: 900px) 100vw, 40vw"
