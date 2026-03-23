@@ -17,7 +17,7 @@ export default function HomePage() {
         <div className="shell hero-grid">
           <div className="hero-copy">
             <p className="hero-copy__eyebrow">Welcome to Rhema Word Embassy Church</p>
-            <h1>Changed by truth. Sent as agents of change.</h1>
+            <h1>Called to Be Changed, And Become agents of Change.</h1>
             <p className="hero-copy__lead">
               A church family in Roysambu, Nairobi committed to sound teaching, prayer,
               worship, and equipping believers to live out the Kingdom of God.

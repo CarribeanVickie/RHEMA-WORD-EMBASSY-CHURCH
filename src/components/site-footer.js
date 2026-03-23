@@ -9,7 +9,7 @@ export function SiteFooter() {
         <div>
           <p className="footer__eyebrow">Rhema Word Embassy Church</p>
           <p className="footer__text">
-            Called to be changed by the Truth and become agents of change.
+            Called to be changed and become agents of change.
           </p>
           <div className="footer__meta">
             <a href={`mailto:${contactDetails.email}`}>{contactDetails.email}</a>
