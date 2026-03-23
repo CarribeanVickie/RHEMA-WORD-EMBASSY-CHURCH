@@ -29,7 +29,7 @@ export default function VisitPage() {
 
         <div className="page-banner__image-wrapper">
           <Image
-            src="/images/IMG_2476.jpg"
+            src="/images/members.jpg"
             alt="Church welcome visual"
             fill
             style={{ objectFit: "cover" }}
