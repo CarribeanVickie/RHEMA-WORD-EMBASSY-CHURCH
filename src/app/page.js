@@ -198,7 +198,7 @@ export default function HomePage() {
           <div className="media-card">
             <div className="media-card__image">
               <Image
-                src="/images/pst_mary.jpg"
+                src="/images/IMG_1111.jpg"
                 alt="Church ministry"
                 fill
               />
