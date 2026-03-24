@@ -102,7 +102,7 @@ export default function HomePage() {
         <div className="shell">
           <div className="host-ministers">
             <p>
-              Hosted Ministers: <strong>Pastor John</strong> & <strong>Mary Mwaura</strong>
+              Host Ministers: <strong>Pastor John</strong> & <strong>Mary Mwaura</strong>
             </p>
           </div>
         </div>
