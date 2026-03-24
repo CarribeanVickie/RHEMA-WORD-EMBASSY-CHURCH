@@ -479,14 +479,36 @@ button:disabled {
   object-position: center center;
 }
 
-@media (max-width: 480px) {
-  .page-banner__media img,
-  .media-card__image img,
-  .video-link-card__media img {
-    object-position: top center; /* focus on top for smaller screens */
+/* Make the CROSS_LOGO always fit inside container */
+.cross_logo {
+  object-fit: fill;       /* show the whole image without cropping */
+  object-position: center;   /* center it */
+  width: 100%;
+  height: 100%;
+}
+
+/* Parent container must have relative position for Next/Image fill */
+.media-card__image {
+  position: relative;
+  width: 100%;
+  height: 100%;             /* adjust height as needed */
+}
+
+@media (max-width: 768px) {
+  .media-card__image {
     object-fit: fill;
+    height: 300px;           /* reduce height on smaller screens */
   }
 }
+
+
+/* Smaller screens */
+@media (max-width: 480px) {
+  .media-card__image {
+    height: 300px;
+  }
+}
+
 
 .section {
   padding-bottom: 1rem;

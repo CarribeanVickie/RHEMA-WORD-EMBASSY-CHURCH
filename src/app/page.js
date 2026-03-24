@@ -207,12 +207,15 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="media-card">
+          <div className="media-card media-card--compact">
             <div className="media-card__image">
               <Image
                 src="/images/IMG_1111.jpg"
-                alt="Church ministry"
+                alt="Prayer and teaching"
                 fill
+                sizes="(max-width: 900px) 100vw, 45vw"
+                className="cross_logo"
+                priority       // 🔥 ensures Next/Image loads it eagerly
               />
             </div>
           </div>
