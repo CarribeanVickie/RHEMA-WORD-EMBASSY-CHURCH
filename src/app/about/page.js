@@ -14,7 +14,7 @@ export default function AboutPage() {
         <div className="shell page-banner__grid">
           <div>
             <p className="page-banner__eyebrow">About RHEMA</p>
-            <h1>The vision, mission, and ministry direction of Rhema Word Embassy</h1>
+            <h1>The vision, mission, and ministry directions</h1>
           </div>
 
           <div className="page-banner__media">

@@ -10,7 +10,7 @@ export const navigation = [
 export const announcement = {
   eyebrow: "This week",
   title: "Join us for worship, prayer, and Bible exposition in Roysambu.",
-  details: "Tuesday Prayer Hour at 5:30 PM, Thursday Service at 5:30 PM, and Sunday Worship from 11:00 AM to 1:00 PM."
+  details: "Tuesday Prayer Hour at 5:30 PM, Thursday Service at 5:30 PM, and Sunday Worship Services: Meat of the Word from 10:00 AM to 11:00 AM, 2nd Session from 11:00 AM to 1:00 PM."
 };
 
 export const serviceAdvert = {
@@ -152,7 +152,7 @@ export const socialLinks = [
 export const contactDetails = {
   phone: "+254 721720660",
   email: "therhemawordembassy@gmail.com",
-  location: "Roysambu, Nairobi",
+  location: "Lumumba Drive, in Roysambu, Nairobi - Kenya",
   mapEmbed:
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d853.0991035165357!2d36.88822476951375!3d-1.2158573591200474!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f3f0d512790a7%3A0xa380687f76493ea5!2sTHE%20RHEMA%20WORD%20EMBASSY%20CHURCH%2C%20ROYSAMBU%20SANCTUARY!5e1!3m2!1sen!2ske!4v1681474433118!5m2!1sen!2ske"
 };

@@ -97,7 +97,7 @@ export default function VisitPage() {
           <div className="contact-card">
             <SectionIntro
               eyebrow="Giving"
-              title="Equity paybill section"
+              title="FINANCIAL SUPPORT DETAILS"
               text="Support the work of the church and contribute to our mission of spreading the gospel and serving the community. Your generosity makes a difference and helps us continue to grow and impact lives."
             />
 
