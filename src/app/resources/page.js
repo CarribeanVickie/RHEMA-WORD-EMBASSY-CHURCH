@@ -75,6 +75,7 @@ export default function ResourcesPage() {
                 alt="Prayer and teaching"
                 fill
                 sizes="(max-width: 900px) 100vw, 45vw"
+                className="cross_logo"
               />
             </div>
           </div>

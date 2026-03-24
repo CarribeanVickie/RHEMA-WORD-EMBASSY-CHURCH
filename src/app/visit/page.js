@@ -39,8 +39,9 @@ export default function VisitPage() {
               <Image
                 src="/images/CHURCH_LOGO.jpg"
                 alt="Church logo"
-                width={140}
-                height={140}
+                width={300}
+                height={300}
+                className="church-logo-img"
                 style={{ borderRadius: "50%" }}
               />
             </Link>

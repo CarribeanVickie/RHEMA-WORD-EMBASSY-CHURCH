@@ -1,0 +1,31 @@
+this is code that can be changed for teh brand-mark
+
+
+
+        <Link className="brand" href="/" onClick={() => setIsOpen(false)}>
+          <span className="brand__mark">
+            <Image
+              src="/images/CHURCH_LOGO.jpg"
+              alt="Rhema Word Embassy Church Logo"
+              width={40}
+              height={40}
+              style={{ objectFit: "contain" }}
+            />
+          </span> 
+          <span>
+            <strong>Rhema Word Embassy</strong>
+            <small>Church</small>
+          </span>
+        </Link>
+
+
+This is how th events should look like:
+
+export const events = [
+  {
+    title: "Youth Conference",
+    date: "2026-04-12",
+    description: "A powerful youth gathering.",
+    location: "Main Church Hall"
+  }
+];

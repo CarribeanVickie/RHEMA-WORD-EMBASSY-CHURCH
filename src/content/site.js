@@ -1,8 +1,9 @@
 export const navigation = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
+  { href: "/about", label: "Our Profile" },
   { href: "/resources", label: "Resources" },
-  { href: "/visit", label: "Visit" }
+  { href: "/visit", label: "Visit" },
+  { href: "/events", label: "Events" },
 ];
 
 
@@ -80,16 +81,24 @@ export const ministryHighlights = [
 export const aboutBlocks = [
   {
     title: "Vision",
-    text: "To be changed by Truth and become agents of change in our generation."
+    text: "To establish a multi-faceted international centre for the purpose of teachings, training, equipping and empowering individuals to discover, develop, deploy and maximize the potential of their inherent gifts and purpose."
+  },
+  {
+    title: "Vision Slogan",
+    text: "“Transforming Followers Into Leaders And Leaders Into Agents Of Change.” (Mark 3:13-15)"
   },
   {
     title: "Mission",
-    text: "To declare, communicate, share, and demonstrate the purpose, power, and principles of the Kingdom of God to every nation."
+    text: "To declare, communicate, and demonstrate the purpose, power, precepts, and principles of the Kingdom of God to every nation and culture, thereby restoring mankind back to God’s dominion-leadership mandate as captured in (Matt. 28:19-20): Therefore go and make disciples of all nations, baptizing them in the name of the Father and of the Son and of the Holy Spirit, and teaching them to obey everything I have commanded you."
   },
   {
     title: "Mission Strategy",
-    text: "We focus on accurate ministry assignment, strong leadership, a well-fed flock, environmental influence, and reaching both the world and the body of Christ."
-  }
+    text: "To teach, train, and develop practical programs for discovering, understanding and applying the precepts, keys, principles, values, morals, and standards of the Kingdom of Heaven on earth, producing a community with a lifestyle reflecting Heaven’s culture. "
+  },
+  {
+    title: "Focus",
+    text: "Third World, developing nations and people everywhere who are products of oppression."
+  },
 ];
 
 export const leadershipPrinciples = [
@@ -134,7 +143,7 @@ export const resourceSections = [
 ];
 
 export const socialLinks = [
-  { href: "https://www.facebook.com/profile.php?id=61554704211443", label: "Facebook" },
+  { href: "https://www.facebook.com/share/18Tpgq2Hy3/", label: "Facebook" },
   { href: "https://www.instagram.com/the_rhema_word_embassy_church?igsh=Njl0NXJna3FucjJp", label: "Instagram" },
   { href: "https://youtube.com/@the_rhema_word_embassy_church?si=z9ikbroTLyJ4PCh5", label: "YouTube" },
   { href: "https://www.tiktok.com/@the_rhema_word_embassy_c?_r=1&_t=ZS-94s3fPq741S", label: "TikTok" }
@@ -153,3 +162,7 @@ export const givingDetails = {
   account: "720660",
   note: "Use this channel for giving and contributions. Specific giving notes such as tithes, offerings, or project support can be added here later."
 };
+
+export const events = [
+  
+];

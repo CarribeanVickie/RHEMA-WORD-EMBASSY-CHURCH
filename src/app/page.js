@@ -96,6 +96,18 @@ export default function HomePage() {
         </div>
       </section>
 
+
+      {/* HOST MINISTERS */}
+      <section className="section section--compact">
+        <div className="shell">
+          <div className="host-ministers">
+            <p>
+              Hosted Ministers: <strong>Pastor John</strong> & <strong>Mary Mwaura</strong>
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* ANNOUNCEMENT */}
       <section className="section section--compact">
         <div className="shell announcement-card">

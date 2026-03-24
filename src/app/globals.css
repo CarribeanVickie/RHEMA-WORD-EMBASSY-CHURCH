@@ -104,15 +104,33 @@ button:disabled {
 }
 
 .brand__mark {
-  display: grid;
-  place-items: center;
-  width: 2.8rem;
-  height: 2.8rem;
-  border-radius: 999px;
-  color: #fff8f2;
-  background: linear-gradient(135deg, var(--accent) 0%, #ba6740 100%);
-  box-shadow: var(--shadow);
-  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 50px;           /* fixed width/height for a perfect circle */
+  height: 50px;
+  font-size: 2rem;
+  font-weight: 900;
+
+  color: #ff7e5f; /* gradient text works too */
+  background: linear-gradient(135deg, #ff7e5f, #feb47b);
+  background-clip: text;          /* standard property */
+  -webkit-background-clip: text;  /* Safari/Chrome */
+  -webkit-text-fill-color: transparent;
+
+  text-shadow: 0 2px 4px rgba(0,0,0,0.15);
+
+  border: 3px solid #ff7e5f;     /* circular border */
+  border-radius: 50%;             /* makes it perfectly circular */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* subtle depth */
+}
+
+.brand__mark:hover {
+  transform: scale(1.15);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2); /* pop on hover */
 }
 
 .menu-toggle {
@@ -430,6 +448,28 @@ button:disabled {
   object-fit: contain;
   object-position: center center;
 }
+
+.host-ministers {
+  text-align: right;   /* force right alignment */
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #333;
+  margin: 1.5rem 0;    /* spacing above and below */
+}
+
+.host-ministers strong {
+  color: #ff7e5f;      /* accent for names */
+}
+
+/* Center on smaller screens */
+@media (max-width: 768px) {
+  .host-ministers {
+    text-align: center;
+  }
+}
+
+
+
 .page-banner__media img,
 .media-card__image img,
 .video-link-card__media img {
@@ -437,6 +477,15 @@ button:disabled {
   height: 100%;
   object-fit: cover;
   object-position: center center;
+}
+
+@media (max-width: 480px) {
+  .page-banner__media img,
+  .media-card__image img,
+  .video-link-card__media img {
+    object-position: top center; /* focus on top for smaller screens */
+    object-fit: fill;
+  }
 }
 
 .section {
@@ -750,7 +799,7 @@ button:disabled {
   }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 768px) {
   :root {
     --shell: min(100% - 1rem, 1180px);
   }
@@ -987,35 +1036,574 @@ button:disabled {
 .page-banner__logo {
   position: absolute;
   top: 50%;
-  left: calc(100% - 400px / 2); /* center over image wrapper */
+  left: calc(100% - 800px / 2); /* center over image wrapper */
   transform: translate(-50%, -50%);
-  width: 140px;
-  height: 140px;
+  width: 300px;
+  height: 300px;
   border-radius: 50%;
   overflow: hidden;
   border: 4px solid white;
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   z-index: 2;
+  margin-top: -5%;
 }
 
-/* Logo overlay */
-.page-banner__logo {
-  position: absolute;
-  top: 50%;
-  left: calc(100% - 400px / 2); /* center over image wrapper */
-  transform: translate(-50%, -50%);
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 4px solid white;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  z-index: 2;
-}
+
 
 /* Hide logo on screens smaller than 768px */
 @media screen and (max-width: 768px) {
   .page-banner__logo {
     display: none;
   }
+}
+
+@media screen and (max-width: 1024px) {
+  .page-banner__logo {
+    left: calc(100% - 400px / 2); /* center over image wrapper */
+    width: 200px;
+    height: 200px;
+    margin-top: -10%;
+  }
+  .church-logo-img {
+    top: 20%;
+    width: 200px;
+    height: 200px;
+  }
+}
+/* =========================
+   EVENTS HERO LAYOUT
+========================= */
+.events-hero {
+  display: grid;
+  grid-template-columns: 1fr 520px;
+  gap: 3rem;
+  align-items: center;
+}
+
+.events-hero__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.events-hero__calendar {
+  height: 100%;
+}
+
+/* =========================
+   TITLE
+========================= */
+.events-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.events-title span {
+  display: block;
+  background: linear-gradient(90deg, #000, #555);
+
+  background-clip: text;       /* standard property */
+  -webkit-background-clip: text; /* webkit prefix for Safari/Chrome */
+  -webkit-text-fill-color: transparent;
+}
+
+/* =========================
+   CALENDAR CONTAINER
+========================= */
+.calendar-wrapper {
+  position: relative;
+  height: 100%;
+  padding: 1.5rem;
+  border-radius: 24px;
+  overflow: hidden;
+
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(14px);
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.1),
+    inset 0 1px rgba(255, 255, 255, 0.6);
+}
+
+/* Logo watermark */
+.calendar-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("/images/CHURCH_LOGO.jpg") center/80% no-repeat;
+  opacity: 0.05;
+  z-index: 0;
+}
+
+/* Glow effect */
+.calendar-wrapper::after {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  top: -100px;
+  right: -100px;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.15), transparent);
+  z-index: 0;
+}
+
+/* Ensure content stays above */
+.calendar-wrapper > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* =========================
+   REACT CALENDAR RESET
+========================= */
+/* Make calendar fully stretch inside its container */
+.react-calendar {
+  width: 100% !important;
+  max-width: 100% !important; /* prevent default width limit */
+  border: none !important;
+  background: transparent !important;
+}
+
+/* Force proper grid */
+.react-calendar__month-view__weekdays{
+  display: grid !important;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  gap: 10px;
+}
+
+/* Force the grid of days to fill the container */
+.react-calendar__month-view__days {
+  display: grid !important;
+  grid-template-columns: repeat(7, 1fr) !important; /* 7 equal columns */
+  gap: 6px; /* optional spacing between tiles */
+}
+
+/* Weekdays */
+.react-calendar__month-view__weekdays {
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.6;
+  margin-bottom: 0.5rem;
+}
+
+/* Days grid spacing */
+.react-calendar__month-view__days {
+  gap: 6px;
+}
+
+/* Make tiles expand fully inside grid cells */
+.react-calendar__tile {
+  width: 100% !important;
+  height: 100% !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1 / 1;
+  border-radius: 14px;
+  padding: 0; /* remove extra padding */
+  box-sizing: border-box;
+}
+
+/* Make number fill the tile completely */
+.react-calendar__tile abbr {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.05rem;
+  font-weight: 600;
+  text-decoration: none;
+  line-height: 1;
+}
+
+/* Hover */
+.react-calendar__tile:hover {
+  background: rgba(0, 0, 0, 0.07);
+  transform: scale(1.08);
+}
+
+/* Today */
+.react-calendar__tile--now {
+  background: rgba(0, 0, 0, 0.08);
+  font-weight: 700;
+}
+
+/* Selected */
+.react-calendar__tile--active {
+  background: linear-gradient(135deg, #000, #222) !important;
+  color: white !important;
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Event dot */
+.calendar-dot {
+  width: 6px;
+  height: 6px;
+  background: #e63946;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 6px;
+}
+
+/* =========================
+   EVENTS LIST
+========================= */
+
+/* Container for selected events / upcoming + past */
+.selected-events {
+  margin-top: 1.5rem;
+}
+
+/* Selected date heading */
+.selected-date {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+/* Event card base */
+.event-card {
+  padding: 1.5rem;
+  border-radius: 14px;
+  margin-bottom: 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Hover effect for cards */
+.event-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+
+/* Premium highlight (e.g., anniversary, featured) */
+.event-card--highlight {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 200, 0, 0.2),
+    rgba(255, 215, 0, 0.1)
+  );
+}
+
+/* Event text */
+.event-card h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.event-card .event-date {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 0.6rem;
+}
+
+.event-card .event-location {
+  display: block;
+  font-size: 0.85rem;
+  color: #777;
+  margin-top: 0.4rem;
+}
+
+/* Empty state for no events */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  border-radius: 14px;
+  background: rgba(0, 0, 0, 0.03);
+  border: 2px dashed rgba(0, 0, 0, 0.1);
+  text-align: center;
+  color: #555;
+  margin-top: 1rem;
+}
+
+.empty-state h4 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #d35400;
+}
+
+.empty-state p {
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+/* =========================
+   MOBILE
+========================= */
+@media (max-width: 900px) {
+  .events-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .events-hero__calendar {
+    order: -1;
+  }
+
+  .split-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .event-card {
+    padding: 1.2rem;
+  }
+
+  .empty-state {
+    padding: 1.5rem;
+  }
+}
+
+/* =========================
+   Anniversary Section
+========================= */
+.anniversary-section {
+  position: relative;
+  overflow: hidden;
+  padding: 4rem 0;
+  background: linear-gradient(135deg, #ffe5b4 0%, #ffca7f 100%);
+}
+
+/* Shell for spacing */
+.anniversary-shell {
+  position: relative;
+  z-index: 2;
+}
+
+/* Anniversary Card */
+.anniversary-card {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+  padding: 2rem 3rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover for subtle movement */
+.anniversary-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+}
+
+/* Background decorative layer */
+.anniversary-bg-layer {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("/images/CHURCH_LOGO.jpg") center/40% no-repeat;
+  opacity: 0.05;
+  z-index: 0;
+}
+
+/* Anniversary Content */
+.anniversary-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.anniversary-content h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: #d35400;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.anniversary-content p {
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+  color: #333;
+}
+
+/* Add proper gap between last paragraph and button */
+.anniversary-content p:last-of-type {
+  margin-bottom: 2.5rem; /* creates space before the button */
+}
+
+.anniversary-content .btn {
+  margin-top: 0; /* button already has spacing from previous margin-bottom */
+  padding: 0.8rem 1.8rem;
+  font-weight: 600;
+  border-radius: 50px;
+  background: linear-gradient(90deg, #ff7e5f, #feb47b);
+  color: white;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.anniversary-content .btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(255, 126, 95, 0.4);
+}
+
+/* Decorative Confetti (optional) */
+.anniversary-card::before,
+.anniversary-card::after {
+  content: "";
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.3), transparent);
+  border-radius: 50%;
+  top: -50px;
+  left: -50px;
+  z-index: 1;
+  transform: rotate(45deg);
+}
+
+.anniversary-card::after {
+  top: auto;
+  bottom: -50px;
+  left: auto;
+  right: -50px;
+  transform: rotate(-30deg);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .anniversary-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .anniversary-content h2 {
+    font-size: 1.8rem;
+  }
+
+  .anniversary-content p {
+    font-size: 1rem;
+  }
+}
+
+
+/* =========================
+   RSVP MODAL
+========================= */
+
+/* Overlay behind modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6); /* semi-transparent black */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  backdrop-filter: blur(2px); /* soft blur behind */
+}
+
+/* Modal box */
+.modal {
+  background: #fff;
+  border-radius: 16px;
+  padding: 2rem;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  position: relative;
+  text-align: center;
+  animation: slideIn 0.3s ease-out;
+}
+
+/* Slide in animation */
+@keyframes slideIn {
+  0% { transform: translateY(-30px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Form title */
+.rsvp-form h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #d35400; /* highlight color */
+}
+
+/* Labels and inputs */
+.rsvp-form label {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.rsvp-form input {
+  margin-top: 0.4rem;
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  transition: border 0.2s ease;
+}
+
+.rsvp-form input:focus {
+  outline: none;
+  border-color: #d35400; /* focus highlight */
+  box-shadow: 0 0 5px rgba(211, 84, 0, 0.3);
+}
+
+/* Buttons */
+.rsvp-form .btn {
+  margin-top: 0.5rem;
+  margin-right: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.rsvp-form .btn-primary {
+  background: linear-gradient(135deg, #ff7e5f, #feb47b);
+  border: none;
+  color: #fff;
+}
+
+.rsvp-form .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.rsvp-form .btn-secondary {
+  background: #eee;
+  border: none;
+  color: #333;
+}
+
+.rsvp-form .btn-secondary:hover {
+  background: #ddd;
+}
+
+/* Thank you message */
+.rsvp-thankyou h3 {
+  font-size: 1.5rem;
+  color: #27ae60; /* green for success */
+  margin-bottom: 1rem;
+}
+
+.rsvp-thankyou p {
+  font-size: 1rem;
+  margin-bottom: 1.2rem;
 }
