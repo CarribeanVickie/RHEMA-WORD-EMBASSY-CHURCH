@@ -25,15 +25,11 @@ export default function HomePage() {
     return () => clearInterval(interval);
   }, []);
 
-  // 🧠 service status logic (SAFE)
+  // 🧠 service status logic with countdown
   const getServiceStatus = (item) => {
-    // only process items with time data
-    if (!item.start || !item.end || !item.bufferEnd || item.day === undefined) {
-      return null;
-    }
+    if (!item.start || !item.end || !item.bufferEnd || item.day === undefined) return null;
 
-    const now = timeNow;
-
+    const now = new Date();
     const currentDay = now.getDay();
     const currentTime = now.getHours() * 60 + now.getMinutes();
 
@@ -45,17 +41,20 @@ export default function HomePage() {
     const endTime = endH * 60 + endM;
     const bufferEndTime = bufferH * 60 + bufferM;
 
-    if (currentDay !== item.day) return "UPCOMING";
+    // If today is the service day
+    if (currentDay === item.day) {
+      if (currentTime < startTime) {
+        // Countdown started at the beginning of the day
+        const minutesUntilStart = startTime - currentTime;
+        return { status: "UPCOMING", countdown: minutesUntilStart };
+      }
 
-    if (currentTime >= startTime && currentTime <= endTime) {
-      return "LIVE";
+      if (currentTime >= startTime && currentTime <= endTime) return { status: "LIVE", countdown: 0 };
+      if (currentTime > endTime && currentTime <= bufferEndTime) return { status: "ENDED", countdown: 0 };
     }
 
-    if (currentTime > endTime && currentTime <= bufferEndTime) {
-      return "ENDED";
-    }
-
-    return "UPCOMING";
+    // Not today
+    return { status: "UPCOMING", countdown: null };
   };
 
   return (
@@ -131,8 +130,20 @@ export default function HomePage() {
 
           <div className="card-grid card-grid--four">
             {serviceTimes.map((item) => {
-              const status = getServiceStatus(item);
+              const statusObj = getServiceStatus(item);
               const isOnline = !!item.Link;
+
+              // Fallback if getServiceStatus returns null
+              const status = statusObj?.status || "UPCOMING";
+              const countdown = statusObj?.countdown;
+
+              // Format countdown if needed
+              let countdownText = "";
+              if (countdown !== null && countdown !== undefined) {
+                const hours = Math.floor(countdown / 60);
+                const minutes = countdown % 60;
+                countdownText = `${hours}h ${minutes}m until start`;
+              }
 
               return (
                 <article className="info-card" key={item.title}>
@@ -140,7 +151,6 @@ export default function HomePage() {
                   <h3>{item.title}</h3>
                   <p>{item.text}</p>
 
-                  {/* ONLY for online services */}
                   {isOnline && (
                     <>
                       {/* 🔴 LIVE */}
@@ -151,11 +161,21 @@ export default function HomePage() {
                       )}
 
                       {/* ⚫ ENDED */}
-                      {status === "ENDED" ? (
+                      {status === "ENDED" && (
                         <p className="info-card__cta-text ended">
                           ⚫ Service has ended
                         </p>
-                      ) : (
+                      )}
+
+                      {/* ⏳ UPCOMING with countdown */}
+                      {status === "UPCOMING" && countdown !== null && (
+                        <p className="info-card__cta-text upcoming">
+                          ⏳ {countdownText}
+                        </p>
+                      )}
+
+                      {/* Link for joining */}
+                      {status !== "ENDED" && (
                         <Link
                           className="info-card__link"
                           href={item.Link}
@@ -163,7 +183,6 @@ export default function HomePage() {
                           rel="noopener noreferrer"
                         >
                           <span className="info-card__link-content">
-                            {/* ✅ FIXED ICON */}
                             <svg
                               className="info-card__icon"
                               xmlns="http://www.w3.org/2000/svg"
@@ -174,7 +193,6 @@ export default function HomePage() {
                             >
                               <path d="M17 10.5V6c0-1.1-.9-2-2-2H3C1.9 4 1 4.9 1 6v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-4.5l5 5v-13l-5 5z"/>
                             </svg>
-
                             <span>Google Meet</span>
                           </span>
                         </Link>

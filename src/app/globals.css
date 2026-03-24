@@ -952,33 +952,45 @@ button:disabled {
   font-size: 0.9rem;
   text-align: center;
   font-weight: 500;
-
   color: #0f9d58; /* matches button */
   animation: bounce 1.5s infinite;
+  border-radius: 6px;
+  padding: 6px 10px;
+  display: inline-block;
+  transition: all 0.3s ease;
 }
 
 .info-card__cta-text.live {
-  color: #e53935; /* bright red for live */
+  color: #fff;
+  background-color: #e53935; /* bright red for live */
   font-weight: bold;
+  box-shadow: 0 0 8px rgba(229, 57, 53, 0.6);
   animation: pulse 1.2s infinite;
 }
 
 .info-card__cta-text.ended {
   color: #757575; /* soft gray */
+  text-decoration: line-through;
+}
+
+.info-card__cta-text.upcoming {
+  color: #333;
+  background-color: #ffd666; /* bright yellow accent */
+  box-shadow: 0 0 4px rgba(255, 214, 102, 0.5);
+  animation: bounce 1.5s infinite alternate;
 }
 
 /* ---------- Animations ---------- */
 @keyframes pulse {
-  0% { opacity: 1; }
-  50% { opacity: 0.6; }
-  100% { opacity: 1; }
+  0% { transform: scale(1); box-shadow: 0 0 8px rgba(229, 57, 53, 0.6); }
+  50% { transform: scale(1.05); box-shadow: 0 0 12px rgba(229, 57, 53, 0.9); }
+  100% { transform: scale(1); box-shadow: 0 0 8px rgba(229, 57, 53, 0.6); }
 }
 
 @keyframes bounce {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(3px); }
 }
-
 /* ---------- Card Layout ---------- */
 .card-grid--four {
   display: grid;
@@ -1008,23 +1020,64 @@ button:disabled {
 
 /* ---------- Mobile Responsive ---------- */
 @media screen and (max-width: 768px) {
+  /* Single column layout */
   .card-grid--four {
     grid-template-columns: 1fr;
     gap: 16px;
   }
 
+  /* Card padding */
   .info-card {
     padding: 16px;
+    border-radius: 12px; /* rounded for mobile */
   }
 
+  /* Link content */
   .info-card__link-content {
-    padding: 8px 12px;
-    font-size: 0.9rem;
+    padding: 10px 14px; /* slightly bigger tap area */
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
   }
 
+  /* CTA Text */
   .info-card__cta-text {
-    font-size: 0.85rem;
-    margin-top: 8px;
+    font-size: 0.9rem; /* slightly bigger for readability */
+    margin-top: 10px;
+    padding: 6px 10px;
+  }
+
+  /* Icon in link scales better */
+  .info-card__icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* Ensure text wraps nicely */
+  .info-card h3, 
+  .info-card p {
+    word-wrap: break-word;
+  }
+
+  /* Reduce shadow for mobile so it doesn't look heavy */
+  .info-card__cta-text.live,
+  .info-card__cta-text.upcoming {
+    box-shadow: 0 0 6px rgba(0,0,0,0.2);
+  }
+}
+
+/* ---------- Mobile Countdown Spacing ---------- */
+@media screen and (max-width: 768px) and (min-width: 375px) {
+  .info-card__cta-text.upcoming {
+    margin-bottom: 12px; /* space between countdown and button */
+    display: block;       /* ensure it’s on its own line */
+    text-align: center;   /* keep centered */
+  }
+
+  .info-card__link {
+    margin-top: 4px;      /* small gap from countdown if needed */
   }
 }
 

@@ -22,7 +22,12 @@ export const serviceAdvert = {
 
 export const serviceTimes = [
   {
-    title: "Sunday Worship Service",
+    title: "Sunday Worship Service: Meat of the Word",
+    time: "Every Sunday, 10:00 AM - 11:00 AM",
+    text: "Gather for worship, Bible exposition, prayer, and fellowship as a church family."
+  },
+  {
+    title: "Sunday Worship Service: 2nd Service",
     time: "Every Sunday, 11:00 AM - 1:00 PM",
     text: "Gather for worship, Bible exposition, prayer, and fellowship as a church family."
   },
