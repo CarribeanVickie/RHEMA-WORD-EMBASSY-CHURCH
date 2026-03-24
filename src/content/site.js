@@ -47,14 +47,14 @@ export const serviceTimes = [
     Link: "https://meet.google.com/ctu-ajks-msu"
   },
   {
+    title: "Wednesday Deborah Service",
+    time: "Every Wednesday, 1:00 PM - 3:00 PM",
+    text: "A gathering centered on ministry, strengthening, and fellowship."
+  },
+  {
     title: "Thursday Service",
     time: "Every Thursday, 5:30 PM - 7:00 PM",
     text: "Midweek teaching and encouragement rooted in the Word."
-  },
-  {
-    title: "Friday Deborah Service",
-    time: "Every Friday, 4:00 PM - 5:30 PM",
-    text: "A gathering centered on ministry, strengthening, and fellowship."
   },
   {
     title: "Friday C.R.O.S.S Service",

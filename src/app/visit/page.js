@@ -57,7 +57,7 @@ export default function VisitPage() {
             <SectionIntro
               eyebrow="Service times"
               title="When to join the church"
-              text={`The church is located in ${contactDetails.location}. You can also reach us at ${contactDetails.email}. or reach us on ${contactDetails.phone}.`}
+              text={`The church is located in ${contactDetails.location}. You can also reach us at ${contactDetails.email}, or reach us on ${contactDetails.phone}.`}
             />
 
             <div className="stack-list">
